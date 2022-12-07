@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.Collections;
 
-// ****5
+// ****5 -> buradan, SecurityConfig'e
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserPrinciple implements UserDetails

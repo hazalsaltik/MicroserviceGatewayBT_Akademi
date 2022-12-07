@@ -22,6 +22,6 @@ public class CustomUserDetailsService implements UserDetailsService
         User user = userService.findByUsername(username).orElseThrow(()
                 -> new UsernameNotFoundException("User with " + username + " is not found."));
 
-        return new UserPrinciple(user.getUserID(), user.getUsername(), user.getPassword());
+        return new UserPrincipal(user.getUserID(), user.getUsername(), user.getPassword());
     }
 }

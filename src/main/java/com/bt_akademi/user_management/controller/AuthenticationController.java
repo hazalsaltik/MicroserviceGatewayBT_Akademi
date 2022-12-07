@@ -1,6 +1,7 @@
 package com.bt_akademi.user_management.controller;
 
 import com.bt_akademi.user_management.model.entity.User;
+import com.bt_akademi.user_management.model.service.AbstractAuthenticationService;
 import com.bt_akademi.user_management.model.service.AbstractUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,15 +15,29 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AuthenticationController
 {
+
+    // kimliği doğrulanmış kullanıcı için JWT oluştururken
+    // oturum (session) yerine JWT kullanılır
     @Autowired
-    private AbstractUserService userService;
+    private AbstractAuthenticationService authenticationService;
+
+
+    @Autowired
+    private AbstractUserService userService; // kullanıcı kaydı için
+
+
+
+    // ***** 12-> ProductController
 
     // oturum ac
     @PostMapping("sign-in")
     public ResponseEntity signIn(@RequestBody User user)
     {
-        return null;
+        String signInJWT = authenticationService.generateJWT(user);
+
+        return new ResponseEntity(signInJWT, HttpStatus.OK);
     }
+
 
     // kaydol
     @PostMapping("sign-up")
