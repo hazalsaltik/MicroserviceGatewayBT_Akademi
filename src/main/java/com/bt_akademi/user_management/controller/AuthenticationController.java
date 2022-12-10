@@ -26,10 +26,8 @@ public class AuthenticationController
     private AbstractUserService userService; // kullanıcı kaydı için
 
 
-
-    // ***** 12-> ProductController
-
-    // oturum ac
+    // ****12 -> ProductController
+    // oturum aç
     @PostMapping("sign-in")
     public ResponseEntity signIn(@RequestBody User user)
     {
