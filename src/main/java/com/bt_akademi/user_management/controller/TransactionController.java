@@ -18,6 +18,10 @@ public class TransactionController
     @Autowired
     private AbstractTransactionService transactionService;
 
+    /*
+        @AuthenticationPrincipal ile oturum açan kullanıcıya
+        Controller üzerinden kolayca erişilir.
+     */
     @GetMapping
     public ResponseEntity<?>  getAllTransactionsOfAuthorizedUser(@AuthenticationPrincipal UserPrincipal user)
     {
